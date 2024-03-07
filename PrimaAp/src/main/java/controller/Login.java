@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
 		System.out.println("l'user è " + user);
 		System.out.println("la pass è " + pass);
 		
-		String permesso = acc.verificaLogin(user, pass); // creaiamo una stringa permmesso dove mettere il permesso dell'account 
+		String permesso = acc.verificaLogin(user, pass); // creaiamo una stringa permesso dove mettere il permesso dell'account 
 		
 		if(permesso != null) { 							//nella sessione possiamo mettere tutte le informazioni che vogliamo
 			session.setAttribute("permesso", permesso); //gli passiamo "l'etichetta name" del permesso come se fosse un id e il valore, che è il permesso vero e proprio
