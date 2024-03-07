@@ -15,13 +15,11 @@
 
 <c:if test = "${permesso == 'admin'}">
 
-<a href="Inserimento">Gestione</a>
-
 <a href="form_inserimento_corriere.jsp">Inserisci corriere</a>
 
+<a href="InserimentoCorriere"><!-- ?nome=sebastiano&&cognome=apuzzo-->Gestione corrieri</a> <!-- il link è sempre una richiesta di tipo GET-->
 
-<a href = "Logout">
-Logout</a>
+<a href = "Logout"> Logout</a>
 
 </c:if>
 

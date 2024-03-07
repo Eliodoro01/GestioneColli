@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +16,7 @@ import model.Account;
 import model.AccountCrud;
 import model.Corriere;
 import model.CorriereCrud;
+import model.DTOAccountcorriere;
 
 /**
  * Servlet implementation class InserimentoCorriere
@@ -33,8 +37,39 @@ public class InserimentoCorriere extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		/*String nome = request.getParameter("nome"); //come si gestiscono i parametri da una get
+		String cognome = request.getParameter("cognome");
+		System.out.println(nome + cognome);*/
+		
+		ArrayList<DTOAccountcorriere> array = new ArrayList<DTOAccountcorriere>();
+		
+		CorriereCrud crud = new CorriereCrud();
+		ResultSet rs = crud.getListaCorrieri();
+		
+		try {
+			while(rs.next()) {
+				DTOAccountcorriere c = new DTOAccountcorriere();
+				c.setNome(rs.getString("nome"));
+				c.setCap(rs.getString("cap"));
+				c.setCitta(rs.getString("citta"));
+				c.setIndirizzo(rs.getString("indirizzo"));
+				c.setPiva(rs.getString("piva"));
+				c.setTelefono(rs.getString("telefono"));
+				c.setEmail(rs.getString("email"));
+				c.setUsername(rs.getString("username"));
+				c.setPassword(rs.getString("password"));
+				
+				array.add(c);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("lista", array);
+		RequestDispatcher rd = request.getRequestDispatcher("gestione.jsp"); //passa il testimone alla jsp
+		rd.forward(request, response); //avviene il passaggio
 	}
 
 	/**

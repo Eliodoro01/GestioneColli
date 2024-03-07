@@ -10,25 +10,34 @@
 <body>
 
 
-<h1> Gestione Dipendenti </h1>
+<h1> Gestione Corrieri </h1>
 <table>
 <tr>
 	<td><b>NOME</b></td>
-	<td><b>COGNOME</b></td>
-	<td><b>CF</b></td>
-	<td><b>ETA'</b></td>
+	<td><b>CAP</b></td>
+	<td><b>CITTÀ</b></td>
+	<td><b>INDIRIZZO</b></td>
+	<td><b>PARTITA IVA</b></td>
+	<td><b>TELEFONO</b></td>
+	<td><b>EMAIL</b></td>
+	<td><b>USERNAME</b></td>
+	
 </tr>
  
-<c:forEach var="list" items="${arraydip}">
+<c:forEach var="list" items="${lista}"> <!-- IN ITEM METTIAMO L'ARRAY LIST PASSATA DALLA SERVLET MENTRE IN VAR UN NOME GENERICO -->
 	<tr>
 		<td>${list.nome}</td>
-		<td>${list.cognome} </td>
-		<td>${list.cf} </td>
-		<td>${list.eta} </td>
+		<td>${list.cap} </td>
+		<td>${list.citta} </td>
+		<td>${list.indirizzo} </td>
+		<td>${list.piva} </td>
+		<td>${list.telefono} </td>
+		<td>${list.email} </td>
+		<td>${list.username} </td>
 		
 			
-		<td><a href="Modifica?cf=${list.cf}"><b>modifica</b></a></td>
-		<td><a href="Elimina?cf=${list.cf}"><b>elimina</b> </a></td>
+		<td><a href="ModificaCorriere?piva=${list.piva}"><b>modifica</b></a></td>
+		<td><a href="EliminaCorriere?piva=${list.piva}"><b>elimina</b> </a></td>
 	</tr>
  
 </c:forEach>
