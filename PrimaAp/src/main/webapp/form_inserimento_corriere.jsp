@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<c:if test="${corriere==null}">
+<c:if test="${corriere==null}"> <!-- Se non viene passato nessun corriere quando viene attivata questa pagina allora l'action sarà quella di inserire un corriere -->
 <form method="post" action="InserimentoCorriere">
 </c:if>
 

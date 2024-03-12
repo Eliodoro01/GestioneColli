@@ -66,7 +66,7 @@ public class AccountCrud {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			System.out.println("Errore nell'Inserimento");
+			System.out.println("Errore nell'Inserimento account");
 		}
 		
 		return num;
@@ -103,5 +103,35 @@ public class AccountCrud {
 		}
 
 		return 0;
+	}
+	
+	public int modificaAccount(Account a, int idaccount) {
+		
+		int result = 0;
+		
+		Connessione istanza = Connessione.getIstanza(); //crea un' istanza per poter usare il metodo getConnection per effettuare una connessione al DB
+		Connection conn = istanza.getConnection();
+
+		String query = "UPDATE account SET email=?,username=?,password=? WHERE id = ?";
+		// andiamo a fare una query per prendere tutte le colonne della tabella corriere che ha come campo piva quella passata al metodo
+		
+		PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
+		try {
+			stat = conn.prepareStatement(query); //andiamo a preparare la query
+			stat.setString(1, a.getEmail());
+			stat.setString(2, a.getUsername()); 
+			stat.setString(3, a.getPassword());
+			stat.setInt(4, idaccount); //nella clausola where
+			
+			result = stat.executeUpdate(); 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("Errore modifica");
+		}
+		
+		return result;
+		
 	}
 }

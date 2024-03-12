@@ -99,7 +99,7 @@ public class InserimentoCorriere extends HttpServlet {
 				corr.setNome(request.getParameter("nome"));
 				corr.setTelefono(request.getParameter("telefono"));
 				corr.setPiva(request.getParameter("piva"));
-				corr.setCitta(request.getParameter("città"));
+				corr.setCitta(request.getParameter("citta"));
 				corr.setIndirizzo(request.getParameter("indirizzo"));
 				corr.setCap(request.getParameter("cap"));
 

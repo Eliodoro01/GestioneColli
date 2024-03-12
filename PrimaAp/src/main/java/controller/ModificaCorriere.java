@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Account;
+import model.AccountCrud;
 import model.Corriere;
 import model.CorriereCrud;
 import model.DTOAccountcorriere;
@@ -33,19 +35,22 @@ public class ModificaCorriere extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		
-		String piva = request.getParameter("piva");
+		String piva = request.getParameter("piva"); 
 		
 		DTOAccountcorriere c = new DTOAccountcorriere();
 		CorriereCrud crud = new CorriereCrud();
-		ResultSet rs = crud.getCorriere(piva);
+		
+		
+		ResultSet rs = crud.getCorriere(piva); //andiamo a mettere in questo ResultSet il corriere con la piva che gli stiamo
+		//passando, cioè quella del corriere su cui stiamo cliccato il tasto modifica nella gestione dei corrieri 
 		
 		try {
-			if(rs.next()) {
+			if(rs.next()) { //scorriamo il ResultSet
 				
-				c.setNome(rs.getString("nome"));
-				c.setCap(rs.getString("cap"));
+				c.setNome(rs.getString("nome"));           //prendiamo il nome dal RS con getString e lo impostiamo come nome dell'oggetto corriere che ci siamo istanziati
+				c.setCap(rs.getString("cap"));			   //stesso cosa per tutti gli altri campi del corriere
 				c.setCitta(rs.getString("citta"));
 				c.setIndirizzo(rs.getString("indirizzo"));
 				c.setPiva(rs.getString("piva"));
@@ -60,6 +65,7 @@ public class ModificaCorriere extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		System.out.println(c);
 		request.setAttribute("corriere", c);
 		RequestDispatcher rd = request.getRequestDispatcher("form_inserimento_corriere.jsp"); //passa il testimone alla jsp
@@ -77,6 +83,9 @@ public class ModificaCorriere extends HttpServlet {
 		Corriere c = new Corriere();
 		CorriereCrud crud = new CorriereCrud();
 		String pivaOld = request.getParameter("pold");
+		Account a = new Account();
+		AccountCrud accCrud = new AccountCrud();
+		
 		int id = Integer.parseInt(request.getParameter("idaccount"));
 		
 		c.setNome(request.getParameter("nome"));
@@ -86,9 +95,12 @@ public class ModificaCorriere extends HttpServlet {
 		c.setPiva(request.getParameter("piva"));
 		c.setTelefono(request.getParameter("telefono"));
 		
+		a.setEmail(request.getParameter("email"));
+		a.setUsername(request.getParameter("username"));
+		a.setPassword(request.getParameter("password"));
 		
-		if(crud.modificaCorriere(pivaOld, c) > 0 ) { 							
-			
+		if(crud.modificaCorriere(pivaOld, c) > 0 && accCrud.modificaAccount(a, id) > 0 ) { 							
+						
 			request.setAttribute("success", "Modifica effettuata correttamente");
 			RequestDispatcher rd = request.getRequestDispatcher("home.jsp"); //passa il testimone alla jsp
 			rd.forward(request, response); //avviene il passaggio

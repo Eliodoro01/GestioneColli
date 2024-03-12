@@ -31,13 +31,13 @@ public class EliminaCorriere extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String piva = request.getParameter("piva");
+		String piva = request.getParameter("piva"); //recuperiamo la piva del corriere che vogliamo eliminare che ci è stata passata dal form
 	
-		CorriereCrud corr = new CorriereCrud();
+		CorriereCrud corr = new CorriereCrud(); //instanziamo un oggetto di tipo corriereCrud per usare i suoi metodi, in questo caso eliminazione
 		
-		if(corr.eliminaCorriere(piva) > 0) { 	
+		if(corr.eliminaCorriere(piva) > 0) { //eliminaCorriere se va a buon fine ritorna il numero di righe eliminate quindi se ritorna un valore positivo si viene reindirizzati alla home	
 			
-			request.setAttribute("success", "Corriere eliminato correttamente");
+			request.setAttribute("success", "Corriere eliminato correttamente"); //messaggi che visualizza solo l'admin
 			RequestDispatcher rd = request.getRequestDispatcher("home.jsp"); //passa il testimone alla jsp
 			rd.forward(request, response); //avviene il passaggio
 		}

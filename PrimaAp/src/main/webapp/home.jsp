@@ -24,7 +24,7 @@
 </c:if>
 
 <c:if test = "${permesso == 'guest'}">
-<a href="Inserimento">Gestione</a>
+<a href="InserimentoVeicoli">Gestione</a>
 
 <a href = "Logout">
 Logout</a>

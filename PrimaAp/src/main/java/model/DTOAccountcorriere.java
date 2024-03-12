@@ -1,6 +1,6 @@
 package model;
 
-public class DTOAccountcorriere {
+public class DTOAccountcorriere { //Data Transfer Object che unisce le classi account e corriere per poter utilizzare le query su queste due tabelle
 	
 	private String username;
 	private String email;

@@ -34,13 +34,13 @@ public int inserimentoCorriere(Corriere c) {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			System.out.println("Errore nell'Inserimento");
+			System.out.println("Errore nell'Inserimento corriere");
 		}
 		
 		return num;
 	}
 
-public ResultSet getListaCorrieri() {
+public ResultSet getListaCorrieri() { //ritorna un resultSet con tutti i corriere del DB
 	
 	ResultSet res = null; //andiamo a creare un oggetto di tipo ResultSet per andare a gestire in seguito il result set restituito dalla query
 
@@ -48,8 +48,7 @@ public ResultSet getListaCorrieri() {
 	Connection conn = istanza.getConnection();
 
 	String query = "SELECT * from corrieri join account on account.id = corrieri.idaccount";
-	// andiamo a fare una query per prendere le righe dal DB che rispettando le condizioni del where, cioè l'username o l'email e la password devono
-	//essere uguali a quelle inserite nel form per questo si usano i punti interrogativi
+	// andiamo a fare una query per prendere tutti i corrieri che hanno un account dal DB
 	
 	PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
 	try {
@@ -57,7 +56,6 @@ public ResultSet getListaCorrieri() {
 		
 		res = stat.executeQuery(); //eseguiamo la query con i valori che siamo andati ad identificare nel setString
 		//per comandi DQL bisogna usare executeQuery che ritornetà un ResultSet (QUINDI SI USA SOLO PER INTERROGAZIONI AL DB)
-		//res funziona come un iteratore 
 
 
 	} catch (SQLException e) {
@@ -77,19 +75,19 @@ public int eliminaCorriere(String piva) {
 	Connection conn = istanza.getConnection();
 
 	String query = "DELETE FROM corrieri WHERE piva = ?";
-	// andiamo a fare una query per prendere le righe dal DB che rispettando le condizioni del where, cioè l'username o l'email e la password devono
-	//essere uguali a quelle inserite nel form per questo si usano i punti interrogativi
+	// andiamo a fare una query per eliminare le righe dal DB che rispettando le condizioni del where, cioè la partita iva deve
+	//essere uguale a quella passata al metodo
 	
 	PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
 	try {
 		stat = conn.prepareStatement(query); // andiamo a preparare la query
-		stat.setString(1, piva); 
-		result = stat.executeUpdate(); 
+		stat.setString(1, piva);     // "imposta" il primo punto interrogativo al valore che gli passiamo voi di piva
+		result = stat.executeUpdate();  // executeUpdate è diverso da execute query
 
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		//e.printStackTrace();
-		System.out.println("Errore ricerca e-mail");
+		System.out.println("Errore ricerca piva");
 	}
 
 	
@@ -105,8 +103,7 @@ public ResultSet getCorriere(String piva) {
 	Connection conn = istanza.getConnection();
 
 	String query = "SELECT * from corrieri join account on account.id = corrieri.idaccount where corrieri.piva = ?";
-	// andiamo a fare una query per prendere le righe dal DB che rispettando le condizioni del where, cioè l'username o l'email e la password devono
-	//essere uguali a quelle inserite nel form per questo si usano i punti interrogativi
+	// andiamo a fare una query per prendere il corriere a cui corrisponde la partita iva che vogliamo eliminare, quindi stiamo utilizzando la partita iva come se fosse una chiave
 	
 	PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
 	try {
@@ -115,19 +112,18 @@ public ResultSet getCorriere(String piva) {
 		
 		res = stat.executeQuery(); //eseguiamo la query con i valori che siamo andati ad identificare nel setString
 		//per comandi DQL bisogna usare executeQuery che ritornetà un ResultSet (QUINDI SI USA SOLO PER INTERROGAZIONI AL DB)
-		//res funziona come un iteratore 
 
 
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		//e.printStackTrace();
-		System.out.println("Errore ricerca e-mail");
+		System.out.println("Errore nella ricerca della piva");
 	}
 
 	return res;
 } 
 
-public int modificaCorriere(String pivaOld, Corriere c) {
+public int modificaCorriere(String pivaOld, Corriere c) { //gli dobbiamo passare la vecchia partita iva per capire quale corriere stiamo andando a modificare
 	
 	int result = 0;
 	
@@ -135,8 +131,7 @@ public int modificaCorriere(String pivaOld, Corriere c) {
 	Connection conn = istanza.getConnection();
 
 	String query = "UPDATE corrieri SET nome=?,piva=?,indirizzo=?,telefono=?,citta=?,cap=? WHERE piva = ?";
-	// andiamo a fare una query per prendere le righe dal DB che rispettando le condizioni del where, cioè l'username o l'email e la password devono
-	//essere uguali a quelle inserite nel form per questo si usano i punti interrogativi
+	// andiamo a fare una query per prendere tutte le colonne della tabella corriere che ha come campo piva quella passata al metodo
 	
 	PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
 	try {
@@ -148,8 +143,6 @@ public int modificaCorriere(String pivaOld, Corriere c) {
 		stat.setString(5, c.getCitta()); 
 		stat.setString(6, c.getCap());
 		stat.setString(7, pivaOld); //nella clausola where
-		
-		System.out.println(stat);
 		
 		result = stat.executeUpdate(); 
 
