@@ -13,7 +13,9 @@
 
 <h2 class="stiletitolo">${success} <!-- per vedere il contenuto del parametro passato nella request--></h2>
 
-<c:if test = "${permesso == 'admin'}">
+
+
+<c:if test = "${permesso == 'admin'}"> <!-- se il permesso corrisponde a quello di admin si va ad una pagina dedicata alle funzionalità dell'admin -->
 
 <a href="form_inserimento_corriere.jsp">Inserisci corriere</a>
 
@@ -23,11 +25,13 @@
 
 </c:if>
 
-<c:if test = "${permesso == 'guest'}">
-<a href="InserimentoVeicoli">Gestione</a>
+<c:if test = "${permesso == 'guest'}"> <!-- se il permesso corrisponde a quello di guest si va ad una pagina dedicata alle funzionalità del guest -->
+<p>${id} </p>
+<a href="form_inserimento_veicolo.jsp">Inserisci Veicolo</a>
 
-<a href = "Logout">
-Logout</a>
+<a href="InserimentoVeicolo">Gestione veicoli</a>
+
+<a href = "Logout"> Logout</a>
 </c:if>
 
 </body>

@@ -155,4 +155,37 @@ public int modificaCorriere(String pivaOld, Corriere c) { //gli dobbiamo passare
 	return result;
 }
 
+public ResultSet getId(String username, String password) {
+	
+	ResultSet res = null; //andiamo a creare un oggetto di tipo ResultSet per andare a gestire in seguito il result set restituito dalla query
+
+	Connessione istanza = Connessione.getIstanza(); //crea un' istanza per poter usare il metodo getConnection per effettuare una connessione al DB
+	Connection conn = istanza.getConnection();
+
+	String query = "select corrieri.id from account join corrieri on account.id = corrieri.idaccount where account.username = ? or account.email = ? and account.password = ?";
+	// andiamo a fare una query per prendere il corriere a cui corrisponde la partita iva che vogliamo eliminare, quindi stiamo utilizzando la partita iva come se fosse una chiave
+	
+	PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
+	try {
+		
+		stat = conn.prepareStatement(query); // andiamo a preparare la query
+		stat.setString(1, username);
+		stat.setString(2, username);
+		stat.setString(3, password);
+		
+		res = stat.executeQuery(); //eseguiamo la query con i valori che siamo andati ad identificare nel setString
+		//per comandi DQL bisogna usare executeQuery che ritornetà un ResultSet (QUINDI SI USA SOLO PER INTERROGAZIONI AL DB)
+
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		//e.printStackTrace();
+		System.out.println("Errore nella ricerca della piva");
+	}
+	
+	return res;
+}
+
+
+
 }
