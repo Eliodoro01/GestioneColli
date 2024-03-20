@@ -16,6 +16,7 @@
 	<td><b>TIPO</b></td>
 	<td><b>CODICE</b></td>
 	<td><b>CAPIENZA</b></td>
+	<td><b>CARICO ATTUALE</b></td>
 	
 </tr>
  
@@ -24,6 +25,7 @@
 		<td>${list.tipo}</td>
 		<td>${list.codice} </td>
 		<td>${list.capienza} </td>
+		<td>${list.caricoAttuale} </td>
 		
 		<td><a href="EliminaVeicolo?codice=${list.codice}"><b>elimina</b> </a></td>
 	</tr>

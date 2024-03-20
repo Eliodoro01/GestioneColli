@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class VeicoloCrud {
 
-public int inserimentoVeicolo(TipoVeicolo v) {
+public int inserimentoVeicolo(Veicolo v) {
 		
 		int num = -1;
 		
@@ -94,4 +94,33 @@ public int eliminaVeicolo(String codice) {
 	
 	return result;
 }
+
+public int update(int caricoAggiornato, int id) {
+
+	int result = 0;
+	
+	Connessione istanza = Connessione.getIstanza(); //crea un' istanza per poter usare il metodo getConnection per effettuare una connessione al DB
+	Connection conn = istanza.getConnection();
+
+	String query = "UPDATE veicoli SET caricoattuale=? WHERE id = ?";
+	// andiamo a fare una query per prendere tutte le colonne della tabella corriere che ha come campo piva quella passata al metodo
+	
+	PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
+	try {
+		stat = conn.prepareStatement(query); //andiamo a preparare la query
+		stat.setInt(1, caricoAggiornato);
+		stat.setInt(2, id); //nella clausola where
+		
+		result = stat.executeUpdate(); 
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		//e.printStackTrace();
+		System.out.println("Errore update carico attuale");
+	}
+	
+	return result;
 }
+}
+
+

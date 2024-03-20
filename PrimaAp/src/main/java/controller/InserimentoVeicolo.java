@@ -17,9 +17,8 @@ import model.AccountCrud;
 import model.Corriere;
 import model.CorriereCrud;
 import model.DTOAccountcorriere;
-import model.TipoVeicolo;
+import model.Veicolo;
 import model.VeicoloCrud;
-import util.Veicolo;
 
 /**
  * Servlet implementation class InserimentoVeicolo
@@ -43,20 +42,22 @@ public class InserimentoVeicolo extends HttpServlet {
 		
 		System.out.println("prova");
 	//ArrayList<DTOAccountcorriere> array = new ArrayList<DTOAccountcorriere>();
-		ArrayList<TipoVeicolo> array = new ArrayList<TipoVeicolo>();
+		ArrayList<Veicolo> array = new ArrayList<Veicolo>();
 		
 		VeicoloCrud crud = new VeicoloCrud();
 		
 		int id = (int) request.getSession().getAttribute("id");
 		System.out.println("l'id è " + id);
+		
 		ResultSet rs = crud.getListaVeicoli(id);
 	
 		try {
 			while(rs.next()) {
-				TipoVeicolo v = new TipoVeicolo();
+				Veicolo v = new Veicolo();
 				v.setCapienza(rs.getInt("capienza"));
 				v.setCodice(rs.getString("codice"));
 				v.setTipo(rs.getString("tipo"));
+				v.setCaricoAttuale(rs.getInt("caricoattuale"));
 				v.setIdcorriere(rs.getInt("idcorriere"));
 				
 				array.add(v);
@@ -66,7 +67,7 @@ public class InserimentoVeicolo extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		for (TipoVeicolo tipoVeicolo : array) {
+		for (Veicolo tipoVeicolo : array) {
 			System.out.println(tipoVeicolo);
 		} 
 		request.setAttribute("lista", array);
@@ -79,7 +80,7 @@ public class InserimentoVeicolo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		TipoVeicolo v = new TipoVeicolo();
+		Veicolo v = new Veicolo();
 		VeicoloCrud crud = new VeicoloCrud();
 		CorriereCrud corr = new CorriereCrud();
 		Corriere c = new Corriere();
