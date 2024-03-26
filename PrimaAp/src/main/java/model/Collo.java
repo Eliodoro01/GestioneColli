@@ -12,9 +12,9 @@ public class Collo implements Observer{
 	private int idveicolo;
 	private String stato;
 	
-	private String id;
+	private int id;
 	
-	public Collo(String id, int peso) {
+	public Collo(int id, int peso) {
         this.id = id;
         this.peso = peso;
     }
@@ -25,12 +25,15 @@ public class Collo implements Observer{
         return peso;
     }
 
-    public String getId() {
-        return id;
-    }
+    
+	public int getId() {
+		return id;
+	}
 
-    
-    
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getCodice() {
 		return codice;
 	}
@@ -77,13 +80,16 @@ public class Collo implements Observer{
 		this.peso = peso;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public void update(Collo collo) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public String toString() {
+		return "Collo [codice=" + codice + ", mittente=" + mittente + ", destinatario=" + destinatario + ", peso="
+				+ peso + ", idveicolo=" + idveicolo + ", stato=" + stato + ", id=" + id + "]";
 	}
 	
 	

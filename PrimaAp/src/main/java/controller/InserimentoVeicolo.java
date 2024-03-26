@@ -59,6 +59,7 @@ public class InserimentoVeicolo extends HttpServlet {
 				v.setTipo(rs.getString("tipo"));
 				v.setCaricoAttuale(rs.getInt("caricoattuale"));
 				v.setIdcorriere(rs.getInt("idcorriere"));
+				v.setId(rs.getInt("id"));
 				
 				array.add(v);
 			}

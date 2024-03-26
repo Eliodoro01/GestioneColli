@@ -121,6 +121,38 @@ public int update(int caricoAggiornato, int id) {
 	
 	return result;
 }
+
+public ResultSet getColli(int id) {
+	
+	ResultSet res = null; //andiamo a creare un oggetto di tipo ResultSet per andare a gestire in seguito il result set restituito dalla query
+
+	Connessione istanza = Connessione.getIstanza(); //crea un' istanza per poter usare il metodo getConnection per effettuare una connessione al DB
+	Connection conn = istanza.getConnection();
+
+	String query = "SELECT * FROM colli WHERE idveicolo = ?;";
+	// andiamo a fare una query per prendere tutti i colli che hanno un idveicolo che passiamo noi 
+	
+	PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
+	try {
+		stat = conn.prepareStatement(query); // andiamo a preparare la query
+		stat.setInt(1, id);
+		
+		System.out.println("Lo stat di getColli è " + stat);
+		
+		res = stat.executeQuery(); //eseguiamo la query con i valori che siamo andati ad identificare nel setString
+		//per comandi DQL bisogna usare executeQuery che ritornetà un ResultSet (QUINDI SI USA SOLO PER INTERROGAZIONI AL DB)
+
+		
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		//e.printStackTrace();
+		System.out.println("Errore ricerca dell'id veicolo");
+	}
+
+	return res;
+	
+}
 }
 
 

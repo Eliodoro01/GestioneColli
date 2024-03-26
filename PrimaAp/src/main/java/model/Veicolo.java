@@ -9,7 +9,7 @@ public class Veicolo extends Observable{
 	private String codice;
 	private String tipo;
 	private int idcorriere;
-	
+	private int id;
     private int caricoAttuale;
     private List<Collo> colliCaricati;
 	
@@ -25,7 +25,18 @@ public class Veicolo extends Observable{
         }
     }
 
-    public List<Collo> getColliCaricati() {
+    
+    public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public List<Collo> getColliCaricati() {
         return colliCaricati;
     }
 

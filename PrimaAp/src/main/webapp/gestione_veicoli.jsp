@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
 <h1> Gestione Veicoli </h1>
 <table>
 <tr>
@@ -19,6 +18,8 @@
 	<td><b>CARICO ATTUALE</b></td>
 	
 </tr>
+
+
  
 <c:forEach var="list" items="${lista}"> <!-- IN ITEM METTIAMO L'ARRAY LIST PASSATA DALLA SERVLET MENTRE IN VAR UN NOME GENERICO -->
 	<tr>
@@ -28,6 +29,7 @@
 		<td>${list.caricoAttuale} </td>
 		
 		<td><a href="EliminaVeicolo?codice=${list.codice}"><b>elimina</b> </a></td>
+		<td><a href="GestioneColli?id=${list.id}"><b>gestisciColli</b> </a></td>
 	</tr>
  
 </c:forEach>
