@@ -67,9 +67,9 @@ public class InserimentoCollo extends HttpServlet {
 		try {	//QUI SI VA AD IMPLEMENTARE UN ALGORITMO DI NEXT FIT 
 			while(rs.next()) //in questo rs sono presenti tutti i veicoli, quindi itera finchè non trova il veicolo con la capienza abbastanza grande da contenere il collo da inserire
 				{
-				System.out.println("il peso è " + c.getPeso());
-				System.out.println("il carico attuale è " + rs.getInt("caricoattuale"));
-				System.out.println("la capienza è " + rs.getInt("capienza"));
+//				System.out.println("il peso è " + c.getPeso());
+//				System.out.println("il carico attuale è " + rs.getInt("caricoattuale"));
+//				System.out.println("la capienza è " + rs.getInt("capienza"));
 				
 				if((c.getPeso() + (rs.getInt("caricoattuale"))) <= (rs.getInt("capienza")) ){ 
 					//se il peso del collo da inserire + il carico attuale del veicolo sono < della capienza massima del veicolo 

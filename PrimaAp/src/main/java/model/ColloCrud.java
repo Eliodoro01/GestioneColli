@@ -81,7 +81,7 @@ public ResultSet getCollo(String codice) {
 	try {
 		stat = conn.prepareStatement(query); // andiamo a preparare la query
 
-		stat.setString(1, codice); // diciamo che il primo punto interrogativo (per questo 1) deve essere uguale al'username che passiamo al metodo verificaLogin
+		stat.setString(1, codice); // diciamo che il primo punto interrogativo (per questo 1) deve essere uguale a codice che passiamo al metodo getCollo
 
 		res = stat.executeQuery(); //eseguiamo la query con i valori che siamo andati ad identificare nel setString
 		//per comandi DQL bisogna usare executeQuery che ritornetà un ResultSet (QUINDI SI USA SOLO PER INTERROGAZIONI AL DB)
