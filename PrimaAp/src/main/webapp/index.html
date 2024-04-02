@@ -2,14 +2,13 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>GestioneColli</title>
+  <title>Gestione Colli</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -45,10 +44,10 @@
   <header id="header" class="header fixed-top" data-scrollto-offset="0">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <a href="home.jsp" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
+      <a href="index.html" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>GestioneColli<span>.</span></h1>
+        <h1>Gestione Colli<span>.</span></h1>
       </a>
 
       <!--  <nav id="navbar" class="navbar">
@@ -119,13 +118,13 @@
 
     </div>
   </header><!-- End Header -->
+	<h2 class="stiletitolo">${success} ${error}</h2>
 
   <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
       
-      <h5 id ="messaggiotitolo">${success} ${error}</h5>
-      <h2>Welcome to <span>GestioneColli</span></h2>
-      <p>Questa è una WebApp che permette la Gestione di tutto ciò che riguarda le aziende di spedizioni, a partire dai corrieri fino ad arrivare ai pacchi.</p>
+      <h2>Welcome to <span>HeroBiz</span></h2>
+      <p>Et voluptate esse accusantium accusamus natus reiciendis quidem voluptates similique aut.</p>
       <div class="d-flex">
      
       </div>
@@ -134,7 +133,7 @@
 
   <main id="main">
 
- <c:if test = "${permesso == 'guest'}"> <!-- se il permesso corrisponde a quello di guest si va ad una pagina dedicata alle funzionalità del guest -->
+ <c:if test = "${permesso == 'guest'}"> <!-- se il permesso corrisponde a quello di guest si va ad una pagina dedicata alle funzionalitÃ  del guest -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -144,9 +143,9 @@
           <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="service-item">
               <div class="img">
-                <img src="img/InserisciVeicoli.jpg" class="img-fluid" width="500" height="400">
+                <img src="assets/img/services-1.jpg" class="img-fluid" alt="">
               </div>
-              <div class="details position-relative" >
+              <div class="details position-relative">
                 <div class="icon">
                   <i class="bi bi-activity"></i>
                 </div>
@@ -161,7 +160,7 @@
           <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
             <div class="service-item">
               <div class="img">
-                <img src="assets/img/services-2.jpg" class="img-fluid" width="500" height="400">
+                <img src="assets/img/services-2.jpg" class="img-fluid" alt="">
               </div>
               <div class="details position-relative">
                 <div class="icon">
@@ -178,7 +177,7 @@
           <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
             <div class="service-item">
               <div class="img">
-                <img src="img/InserisciCollo.jpg" class="img-fluid" width="500" height="400">
+                <img src="assets/img/services-3.jpg" class="img-fluid" alt="">
               </div>
               <div class="details position-relative">
                 <div class="icon">
@@ -203,17 +202,17 @@
     
  
  
- <c:if test = "${permesso == 'admin'}"> <!-- se il permesso corrisponde a quello di guest si va ad una pagina dedicata alle funzionalità del guest -->
+ <c:if test = "${permesso == 'admin'}"> <!-- se il permesso corrisponde a quello di guest si va ad una pagina dedicata alle funzionalitÃ  del guest -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
      	<div class="row gy-5">
 
-          <div class="col-xl-6 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="service-item">
               <div class="img">
-                <img src="img/InserisciCorriere.png" class="img-fluid" alt="" width = "500" height = "400">
+                <img src="assets/img/services-1.jpg" class="img-fluid" alt="">
               </div>
               <div class="details position-relative">
                 <div class="icon">
@@ -227,7 +226,7 @@
             </div>
           </div><!-- End Service Item -->
 
-          <div class="col-xl-6 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
             <div class="service-item">
               <div class="img">
                 <img src="assets/img/services-2.jpg" class="img-fluid" alt="">
@@ -260,14 +259,24 @@
 
         <div class="d-flex flex-column align-items-center align-items-lg-start">
           <div class="copyright">
-            &copy; Copyright <strong><span>Eliodoro Mascolo</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>HeroBiz</span></strong>. All Rights Reserved
           </div>
-          <div class="credits">      
-            Designed by me
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
           </div>
         </div>
 
-   
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
 
       </div>
     </div>
@@ -288,10 +297,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-<script type="text/javascript">
-timeout_id = setTimeout(function(){document.getElementById('messaggiotitolo').style.display="none"}, 2000);
-</script>
 
 </body>
 
