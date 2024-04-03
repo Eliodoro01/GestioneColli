@@ -3187,3 +3187,12 @@ section {
     margin-top: 140px;
     margin-bottom: 140px;
 }
+
+.btn-primary {
+	--bs-btn-bg: #0ea2bd !important ;
+	--bs-btn-border-color: #0ea2bd !important;
+}
+
+.footer{
+	margin-top: 20%;
+}

@@ -213,7 +213,7 @@
           <div class="col-xl-6 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="service-item">
               <div class="img">
-                <img src="img/InserisciCorriere.png" class="img-fluid" alt="" width = "500" height = "400">
+                <img src="img/InserisciCorriere.jpg" class="img-fluid" alt="" width = "500" height = "400">
               </div>
               <div class="details position-relative">
                 <div class="icon">
