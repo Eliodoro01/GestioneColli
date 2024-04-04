@@ -68,7 +68,7 @@
           <div class="col-lg-12">					
               <div class="row">
                 <div class="col-md-12 form-group">                                   
-                  <input type="text" name="codice" class="form-control" id="name" placeholder="inserisci il codice del collo" required="">
+                  <input type="text" name="codice" class="form-control" id="name" placeholder="Inserisci il codice del collo" required="">
                 </div>
                
               </div>

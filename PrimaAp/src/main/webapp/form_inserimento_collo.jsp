@@ -69,19 +69,19 @@
           <div class="col-lg-12">					
               <div class="row">
                 <div class="col-md-12 form-group">                      
-                  <input type="text" name="mittente" class="form-control" id="name" placeholder="inserisci il mittente" required="">
+                  <input type="text" name="mittente" class="form-control" id="name" placeholder="Inserisci il mittente" required="">
                 </div>
                 <div class="col-md-12 form-group mt-3 mt-md-0">                    
-                  <input type="text" class="form-control" name="destinatario" id="email" placeholder="inserisci il destinatario" required="">
+                  <input type="text" class="form-control" name="destinatario" id="email" placeholder="Inserisci il destinatario" required="">
                 </div>
               </div>
               
               <div class="row">
                 <div class="col-md-12 form-group"> 
-                  <input type="text" class="form-control" name="codice" id="subject" placeholder="inserisci il codice" value="${corriere.indirizzo}" required="">
+                  <input type="text" class="form-control" name="codice" id="subject" placeholder="Inserisci il codice" value="${corriere.indirizzo}" required="">
                 </div>
                <div class="col-md-12 form-group"> 
-                  <input type="text" class="form-control" name="peso" id="subject" placeholder="inserisci il peso" value="${corriere.indirizzo}" required="">
+                  <input type="text" class="form-control" name="peso" id="subject" placeholder="Inserisci il peso" value="${corriere.indirizzo}" required="">
                 </div>
               </div>
               

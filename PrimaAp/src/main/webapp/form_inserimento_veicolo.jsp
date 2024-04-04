@@ -69,16 +69,16 @@
               <div class="row">
                 <div class="col-md-12 form-group">  
                        
-                  <input type="text" name="capienza" class="form-control" id="name" placeholder="inserisci la capienza" required="">
+                  <input type="text" name="capienza" class="form-control" id="name" placeholder="Inserisci la capienza" required="">
                 </div>
                 <div class="col-md-12 form-group mt-3 mt-md-0">                           
-                  <input type="text" class="form-control" name="codice" id="email" placeholder="inserisci il codice" required="">
+                  <input type="text" class="form-control" name="codice" id="email" placeholder="Inserisci il codice" required="">
                 </div>
               </div>
               
               <div class="row">
                 <div class="col-md-12 form-group">       
-                  <input type="text" class="form-control" name="tipo" id="subject" placeholder="inserisci il tipo" value="${corriere.indirizzo}" required="">
+                  <input type="text" class="form-control" name="tipo" id="subject" placeholder="Inserisci il tipo" value="${corriere.indirizzo}" required="">
                 </div>
                
               </div>

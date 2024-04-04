@@ -73,40 +73,40 @@
 					</c:if>
               <div class="row">
                 <div class="col-md-6 form-group">              
-                  <input type="text" name="nome" class="form-control" id="name" placeholder="inserisci il nome" value="${corriere.nome}" required="">
+                  <input type="text" name="nome" class="form-control" id="name" placeholder="Inserisci il nome" value="${corriere.nome}" required="">
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">              
-                  <input type="text" class="form-control" name="piva" id="email" placeholder="inserisci la partita iva" value="${corriere.piva}" required="">
+                  <input type="text" class="form-control" name="piva" id="email" placeholder="Inserisci la partita iva" value="${corriere.piva}" required="">
                 </div>
               </div>
               
               <div class="row">
                 <div class="col-md-6 form-group">              
-                  <input type="text" class="form-control" name="indirizzo" id="subject" placeholder="inserisci l'indirizzo" value="${corriere.indirizzo}" required="">
+                  <input type="text" class="form-control" name="indirizzo" id="subject" placeholder="Inserisci l'indirizzo" value="${corriere.indirizzo}" required="">
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">                  	          
-                  <input type="text" class="form-control" name="telefono" id="email" placeholder="inserisci il telefono" value="${corriere.telefono}" required="">
+                  <input type="text" class="form-control" name="telefono" id="email" placeholder="Inserisci il telefono" value="${corriere.telefono}" required="">
                 </div>
               </div>
               
               <div class="row">
                 <div class="col-md-6 form-group">                             
-                  <input type="text" class="form-control" name="citta" id="subject" placeholder="inserisci la città" value="${corriere.citta}" required="">
+                  <input type="text" class="form-control" name="citta" id="subject" placeholder="Inserisci la città" value="${corriere.citta}" required="">
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">                                	          
-                  <input type="text" class="form-control" name="cap" id="email" placeholder="inserisci il cap" value="${corriere.cap}" required="">
+                  <input type="text" class="form-control" name="cap" id="email" placeholder="Inserisci il cap" value="${corriere.cap}" required="">
                 </div>
               </div>
               
               <div class="row">
                 <div class="col-md-12 form-group">                                             
-                  <input type="text" class="form-control" name="username" id="subject" placeholder="inserisci l'username" value="${corriere.username}" required="">
+                  <input type="text" class="form-control" name="username" id="subject" placeholder="Inserisci l'username" value="${corriere.username}" required="">
                 </div>
                 <div class="col-md-12 form-group mt-3 mt-md-0">                                                 	          
-                  <input type="text" class="form-control" name="email" id="email" placeholder="inserisci l'email" value="${corriere.email}" required="">
+                  <input type="text" class="form-control" name="email" id="email" placeholder="Inserisci l'email" value="${corriere.email}" required="">
                 </div>
                 <div class="col-md-12 form-group">                                                             
-                  <input type="text" class="form-control" name="password" id="subject" placeholder="inserisci la password" value="${corriere.password}" required="">
+                  <input type="text" class="form-control" name="password" id="subject" placeholder="Inserisci la password" value="${corriere.password}" required="">
                 </div>
               </div>
                     
