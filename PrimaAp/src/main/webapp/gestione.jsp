@@ -108,7 +108,7 @@
  
     
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer" style="margin-top: 20%">
+  <footer id="footer" class="footer" style="margin-top: 25%">
     <div class="footer-legal text-center">
       <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
 

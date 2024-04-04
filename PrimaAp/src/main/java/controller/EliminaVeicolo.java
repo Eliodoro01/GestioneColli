@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sound.midi.MidiSystem;
 
 import model.CorriereCrud;
 import model.VeicoloCrud;
@@ -33,7 +34,7 @@ public class EliminaVeicolo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String codice = request.getParameter("codice"); //recuperiamo la piva del corriere che vogliamo eliminare che ci è stata passata dal form
-		
+	
 		VeicoloCrud v = new VeicoloCrud(); //instanziamo un oggetto di tipo corriereCrud per usare i suoi metodi, in questo caso eliminazione
 		
 		if(v.eliminaVeicolo(codice) > 0) { //eliminaCorriere se va a buon fine ritorna il numero di righe eliminate quindi se ritorna un valore positivo si viene reindirizzati alla home	

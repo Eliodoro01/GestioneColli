@@ -82,6 +82,8 @@ public int eliminaVeicolo(String codice) {
 	try {
 		stat = conn.prepareStatement(query); // andiamo a preparare la query
 		stat.setString(1, codice);     // "imposta" il primo punto interrogativo al valore che gli passiamo voi di piva
+		
+		System.out.println("lo stat è " + stat);
 		result = stat.executeUpdate();  // executeUpdate è diverso da execute query
 
 	} catch (SQLException e) {

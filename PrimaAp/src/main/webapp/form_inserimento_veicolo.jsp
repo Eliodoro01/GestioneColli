@@ -93,7 +93,7 @@
 	
 	<input type="hidden" name="pold" value="${corriere.piva}">
 	<div class="row">
-		<div class="mt-3" ">
+		<div class="mt-3">
 			<button class="btn-primary btn" type="submit" style="width:50%!important">Invia</button>
 		</div>
 	</div>
