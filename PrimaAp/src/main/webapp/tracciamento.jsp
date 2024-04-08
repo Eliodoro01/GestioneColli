@@ -45,14 +45,13 @@
   <header id="header" class="header fixed-top" data-scrollto-offset="0">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <a href="home.jsp" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
+      <a href="tracciamento.jsp" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>Tracciamento<span>.</span></h1>
       </a>
 
-      <a class="btn-getstarted scrollto" href="Logout">Logout</a>
-
+     
     </div>
   </header><!-- End Header -->
 

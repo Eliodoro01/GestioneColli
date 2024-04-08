@@ -82,7 +82,7 @@ public class ModificaCorriere extends HttpServlet {
 		
 		Corriere c = new Corriere();
 		CorriereCrud crud = new CorriereCrud();
-		String pivaOld = request.getParameter("pold");
+		String pivaOld = request.getParameter("pold");		
 		Account a = new Account();
 		AccountCrud accCrud = new AccountCrud();
 		

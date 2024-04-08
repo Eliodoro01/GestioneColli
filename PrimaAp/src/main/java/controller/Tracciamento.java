@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Collo;
 import model.ColloCrud;
+import model.DTOCorrierecollo;
 
 /**
  * Servlet implementation class Tracciamento
@@ -43,21 +44,24 @@ public class Tracciamento extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String codice = request.getParameter("codice");
-		System.out.println("Il codice è tracciamento " + codice);
+		System.out.println("Il codice di tracciamento " + codice);
 		ColloCrud crud = new ColloCrud();
-		Collo c = new Collo();
+		DTOCorrierecollo c = new DTOCorrierecollo();
 		
         ResultSet rs = crud.getCollo(codice);
 		
 		try {
 			while(rs.next()) {
-				c.setCodice(rs.getString("codice"));
-				c.setDestinatario(rs.getString("destinatario"));
-				c.setId(rs.getInt("id"));
-				c.setIdveicolo(rs.getInt("idveicolo"));
+				System.out.println("Siamo nel rs");
+				c.setCodice(codice);
+				c.setDestinatario(rs.getString("destinatario"));				
 				c.setMittente(rs.getString("mittente"));
 				c.setPeso(rs.getInt("peso"));
 				c.setStato(rs.getString("stato"));
+				c.setNome(rs.getString("nome"));
+				c.setTelefono(rs.getString("telefono"));
+				c.setCitta(rs.getString("citta"));			
+				
 				
 			}
 		} catch (SQLException e) {
@@ -67,6 +71,7 @@ public class Tracciamento extends HttpServlet {
 		
 		if(c != null ) {
 		
+			System.out.println(c);
 			request.setAttribute("success", "Il collo è stato trovato");
 			request.setAttribute("collo", c);
 			RequestDispatcher rd = request.getRequestDispatcher("dettaglio_tracciamento.jsp"); //passa il testimone alla jsp

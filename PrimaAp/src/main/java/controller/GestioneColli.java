@@ -24,7 +24,7 @@ import model.VeicoloCrud;
 public class GestioneColli extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
-	ArrayList<Collo> array = new ArrayList<Collo>();
+	ArrayList<Collo> array;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -41,6 +41,7 @@ public class GestioneColli extends HttpServlet {
 		
 		//ArrayList<Collo> array = new ArrayList<Collo>();		
 		VeicoloCrud crud = new VeicoloCrud();
+		array = new ArrayList<Collo>();
 	
 		ResultSet rs = crud.getColli(Integer.parseInt(request.getParameter("id")));
 		

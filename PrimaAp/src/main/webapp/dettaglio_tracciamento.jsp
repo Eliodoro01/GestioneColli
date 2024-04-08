@@ -70,7 +70,10 @@
       <th scope="col">Destinatario</th>
       <th scope="col">Codice</th>
       <th scope="col">Peso</th> 
-      <th scope="col">Stato</th>        
+      <th scope="col">Stato</th>
+      <th scope="col">Nome Corriere</th> 
+      <th scope="col">Contatti</th> 
+      <th scope="col">Centro di Smistamento</th>         
     </tr>
   </thead>
 
@@ -79,9 +82,12 @@
 	<tr>
 		<td>${collo.mittente}</td>
 		<td>${collo.destinatario} </td>
-		<td>${collo.codice} </td>
+		 <td>${collo.codice} </td>
 		<td>${collo.peso} </td>
 		<td>${collo.stato} </td>
+		<td>${collo.nome} </td>
+		<td>${collo.telefono} </td>
+		<td>${collo.citta} </td>
 		
 	</tr>
  

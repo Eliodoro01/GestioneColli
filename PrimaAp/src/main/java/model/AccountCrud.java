@@ -38,7 +38,7 @@ public class AccountCrud {
 			System.out.println("Errore Login");
 		}
 
-		return null; //se la connessione non va a buon fine o non trova il permesso legato ad un account ritorniamo null
+		return ""; //se la connessione non va a buon fine o non trova il permesso legato ad un account ritorniamo null
 
 	}
 	
@@ -133,5 +133,36 @@ public class AccountCrud {
 		
 		return result;
 		
+	}
+	
+	public int eliminaAccount(int id) {
+		
+		int result = 0;
+		
+		Connessione istanza = Connessione.getIstanza(); //crea un' istanza per poter usare il metodo getConnection per effettuare una connessione al DB
+		Connection conn = istanza.getConnection();
+
+		String query = "DELETE FROM account WHERE id = ?";
+		// andiamo a fare una query per eliminare le righe dal DB che rispettando le condizioni del where, cioè la partita iva deve
+		//essere uguale a quella passata al metodo
+		
+		PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
+		try {
+			stat = conn.prepareStatement(query); // andiamo a preparare la query
+			stat.setInt(1, id);     // "imposta" il primo punto interrogativo al valore che gli passiamo voi di piva
+			
+			System.out.println("Lo stat è " + stat);
+			
+			result = stat.executeUpdate();  // executeUpdate è diverso da execute query
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("Errore eliminazione account");
+		}
+
+		
+		
+		return result;
 	}
 }

@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
 		
 		if(permesso.equals("guest")) { 							//nella sessione possiamo mettere tutte le informazioni che vogliamo	
 			
-			System.out.println("ciao");
+			//System.out.println("ciao");
 			c = new CorriereCrud();
 			try {
 				rs = c.getId(user, pass);
@@ -69,15 +69,16 @@ public class Login extends HttpServlet {
 			rd.forward(request, response); //avviene il passaggio
 		}
 		
-		else if( permesso.equals("admin")) {
+		else if(permesso.equals("admin")) {
 			session.setAttribute("permesso", permesso); //gli passiamo "l'etichetta name" del permesso come se fosse un id e il valore, che è il permesso vero e proprio		
 			request.setAttribute("success", "Login effettuato correttamente");
 			RequestDispatcher rd = request.getRequestDispatcher("home.jsp"); //passa il testimone alla jsp
 			rd.forward(request, response); //avviene il passaggio
 		}
 		else {
+			
 			request.setAttribute("error", "Login fallito");
-			RequestDispatcher rd = request.getRequestDispatcher("error.jsp"); //passa il testimone alla jsp
+			RequestDispatcher rd = request.getRequestDispatcher("error_login.jsp"); //passa il testimone alla jsp
 			rd.forward(request, response); //avviene il passaggio
 		}
 	}

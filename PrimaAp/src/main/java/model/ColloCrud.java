@@ -73,7 +73,7 @@ public ResultSet getCollo(String codice) {
 	Connessione istanza = Connessione.getIstanza(); //crea un' istanza per poter usare il metodo getConnection per effettuare una connessione al DB
 	Connection conn = istanza.getConnection();
 
-	String query = "SELECT * FROM colli WHERE codice = ?";
+	String query = "SELECT colli.mittente, colli.destinatario, colli.peso, colli.stato, corrieri.nome, corrieri.telefono, corrieri.citta FROM colli join veicoli on veicoli.id = colli.idveicolo join corrieri on corrieri.id = veicoli.idcorriere WHERE colli.codice = ?";
 	// andiamo a fare una query per prendere le righe dal DB che rispettando le condizioni del where, cioè l'username o l'email e la password devono
 	//essere uguali a quelle inserite nel form per questo si usano i punti interrogativi
 	
@@ -83,6 +83,8 @@ public ResultSet getCollo(String codice) {
 
 		stat.setString(1, codice); // diciamo che il primo punto interrogativo (per questo 1) deve essere uguale a codice che passiamo al metodo getCollo
 
+		System.out.println("Lo stat è "+ stat);
+		
 		res = stat.executeQuery(); //eseguiamo la query con i valori che siamo andati ad identificare nel setString
 		//per comandi DQL bisogna usare executeQuery che ritornetà un ResultSet (QUINDI SI USA SOLO PER INTERROGAZIONI AL DB)
 		//res funziona come un iteratore 

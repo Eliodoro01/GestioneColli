@@ -59,6 +59,7 @@ public class InserimentoCorriere extends HttpServlet {
 				c.setEmail(rs.getString("email"));
 				c.setUsername(rs.getString("username"));
 				c.setPassword(rs.getString("password"));
+				c.setIdaccount(rs.getInt("idaccount"));
 				
 				array.add(c);
 			}

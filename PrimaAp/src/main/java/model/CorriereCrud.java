@@ -82,12 +82,15 @@ public int eliminaCorriere(String piva) {
 	try {
 		stat = conn.prepareStatement(query); // andiamo a preparare la query
 		stat.setString(1, piva);     // "imposta" il primo punto interrogativo al valore che gli passiamo voi di piva
+		
+		System.out.println("Lo stat è " + stat);
+		
 		result = stat.executeUpdate();  // executeUpdate è diverso da execute query
 
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		//e.printStackTrace();
-		System.out.println("Errore ricerca piva");
+		System.out.println("Errore eliminazione corriere");
 	}
 
 	

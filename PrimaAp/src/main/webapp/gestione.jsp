@@ -94,7 +94,7 @@
 		
 			
 		<td><a href="ModificaCorriere?piva=${list.piva}"><b>modifica</b></a></td>
-		<td><a href="EliminaCorriere?piva=${list.piva}"><b>elimina</b> </a></td>
+		<td><a href="EliminaCorriere?piva=${list.piva}&&idaccount=${list.idaccount}"><b>elimina</b> </a></td>
 	</tr>
  
 </c:forEach>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AccountCrud;
 import model.CorriereCrud;
 
 /**
@@ -32,17 +33,20 @@ public class EliminaCorriere extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String piva = request.getParameter("piva"); //recuperiamo la piva del corriere che vogliamo eliminare che ci è stata passata dal form
-	
+		String idaccount = request.getParameter("idaccount");
+		
+		System.out.println("L'idaccount è " + idaccount);
+		AccountCrud acc = new AccountCrud();
 		CorriereCrud corr = new CorriereCrud(); //instanziamo un oggetto di tipo corriereCrud per usare i suoi metodi, in questo caso eliminazione
 		
-		if(corr.eliminaCorriere(piva) > 0) { //eliminaCorriere se va a buon fine ritorna il numero di righe eliminate quindi se ritorna un valore positivo si viene reindirizzati alla home	
+		if(corr.eliminaCorriere(piva) > 0 && acc.eliminaAccount(Integer.parseInt(idaccount)) > 0) { //eliminaCorriere se va a buon fine ritorna il numero di righe eliminate quindi se ritorna un valore positivo si viene reindirizzati alla home	
 			
 			request.setAttribute("success", "Corriere eliminato correttamente"); //messaggi che visualizza solo l'admin
 			RequestDispatcher rd = request.getRequestDispatcher("home.jsp"); //passa il testimone alla jsp
 			rd.forward(request, response); //avviene il passaggio
 		}
 		else {
-			request.setAttribute("error", "Eliminazione corriere fallita");
+			request.setAttribute("error", "Eliminazione corriere fallita perché esistono veicoli associati");
 			RequestDispatcher rd = request.getRequestDispatcher("error.jsp"); //passa il testimone alla jsp
 			rd.forward(request, response); //avviene il passaggio
 		}
