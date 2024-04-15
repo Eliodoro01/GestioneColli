@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.CentroSmistamento;
 import model.Collo;
 import model.ColloCrud;
 import model.Corriere;
@@ -50,6 +51,7 @@ public class InserimentoCollo extends HttpServlet {
 		ColloCrud crud = new ColloCrud();
 		Veicolo v = new Veicolo();
 		VeicoloCrud vcrud = new VeicoloCrud();
+		CentroSmistamento s = new CentroSmistamento();
 		
 		boolean flag = false;
 		
@@ -71,7 +73,8 @@ public class InserimentoCollo extends HttpServlet {
 //				System.out.println("il carico attuale è " + rs.getInt("caricoattuale"));
 //				System.out.println("la capienza è " + rs.getInt("capienza"));
 				
-				if((c.getPeso() + (rs.getInt("caricoattuale"))) <= (rs.getInt("capienza")) ){ 
+				s.riceviCollo(c, v);
+				/*if((c.getPeso() + (rs.getInt("caricoattuale"))) <= (rs.getInt("capienza")) ){ 
 					//se il peso del collo da inserire + il carico attuale del veicolo sono < della capienza massima del veicolo 
 					//allora il collo potrà essere inserito nel veicolo corrente
 					
@@ -79,9 +82,11 @@ public class InserimentoCollo extends HttpServlet {
 					
 					crud.inserimentoCollo(c, rs.getInt("id")); //inseriamo il collo nel veicolo con l'id che andiamo a recuperare dal ResultSet
 					
+					s.riceviCollo(c, v); //pattern che notifica all'osservatore l'inserimento del collo nel veicolo
+					
 					vcrud.update((c.getPeso() + (rs.getInt("caricoattuale"))), rs.getInt("id")); //aggiorniamo il carico attuale del veicolo
 					break;
-				}
+				}*/
 				
 			}
 		} catch (SQLException e) {

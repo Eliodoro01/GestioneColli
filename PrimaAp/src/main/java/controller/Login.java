@@ -77,7 +77,7 @@ public class Login extends HttpServlet {
 		}
 		else {
 			
-			request.setAttribute("error", "Login fallito");
+			request.setAttribute("error", "Login fallito, inserire correttamente username e password");
 			RequestDispatcher rd = request.getRequestDispatcher("error_login.jsp"); //passa il testimone alla jsp
 			rd.forward(request, response); //avviene il passaggio
 		}

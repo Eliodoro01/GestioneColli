@@ -40,16 +40,15 @@ public class InserimentoVeicolo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("prova");
+		
 	//ArrayList<DTOAccountcorriere> array = new ArrayList<DTOAccountcorriere>();
-		ArrayList<Veicolo> array = new ArrayList<Veicolo>();
+		ArrayList<Veicolo> array = new ArrayList<Veicolo>(); //creaiamo un arrayList di veicoli
 		
 		VeicoloCrud crud = new VeicoloCrud();
 		
-		int id = (int) request.getSession().getAttribute("id");
-		System.out.println("l'id è " + id);
+		int id = (int) request.getSession().getAttribute("id"); //prendiamo l'id del corriere dalla sessione
 		
-		ResultSet rs = crud.getListaVeicoli(id);
+		ResultSet rs = crud.getListaVeicoli(id); //prendiamo tutti i veicoli assegnati al corriere con questo id
 	
 		try {
 			while(rs.next()) {
@@ -61,7 +60,7 @@ public class InserimentoVeicolo extends HttpServlet {
 				v.setIdcorriere(rs.getInt("idcorriere"));
 				v.setId(rs.getInt("id"));
 				
-				array.add(v);
+				array.add(v); //aggiungiamo tutti i veicoli associati ad un corriere in un array
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -71,7 +70,7 @@ public class InserimentoVeicolo extends HttpServlet {
 		for (Veicolo tipoVeicolo : array) {
 			System.out.println(tipoVeicolo);
 		} 
-		request.setAttribute("lista", array);
+		request.setAttribute("lista", array);	//mandiamo la lista alla jsp così da poter visualizzare ed effettuare operazioni con i veicoli
 		RequestDispatcher rd = request.getRequestDispatcher("gestione_veicoli.jsp"); //passa il testimone alla jsp
 		rd.forward(request, response); //avviene il passaggio
 	}

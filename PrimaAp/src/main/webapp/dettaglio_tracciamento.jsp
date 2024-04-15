@@ -51,7 +51,6 @@
         <h1>Tracciamento<span>.</span></h1>
       </a>
 
-      <a class="btn-getstarted scrollto" href="Logout">Logout</a>
 
     </div>
   </header><!-- End Header -->
