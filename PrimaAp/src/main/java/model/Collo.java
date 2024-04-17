@@ -3,7 +3,7 @@ package model;
 
 import util.Observer;
 
-public class Collo implements Observer{
+public class Collo{
 
 	private String codice;
 	private String mittente;
@@ -80,11 +80,6 @@ public class Collo implements Observer{
 		this.peso = peso;
 	}
 
-
-	public void update(Collo collo) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public String toString() {

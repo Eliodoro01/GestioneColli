@@ -11,19 +11,7 @@ public class Veicolo extends Observable{
 	private int idcorriere;
 	private int id;
     private int caricoAttuale;
-    private List<Collo> colliCaricati;
-	
-
-    public void caricaCollo(Collo collo) {
-        if (caricoAttuale + collo.getPeso() <= capienza) {
-            colliCaricati.add(collo);
-            caricoAttuale += collo.getPeso();
-            notifyObservers(collo);
-            
-        } else {
-            System.out.println("Veicolo " + codice + " pieno. Impossibile caricare il collo.");
-        }
-    }
+    
 
     
     public int getId() {
@@ -35,10 +23,6 @@ public class Veicolo extends Observable{
 		this.id = id;
 	}
 
-
-	public List<Collo> getColliCaricati() {
-        return colliCaricati;
-    }
 
 	public int getIdcorriere() {
 		return idcorriere;
@@ -80,14 +64,11 @@ public class Veicolo extends Observable{
 		this.caricoAttuale = caricoAttuale;
 	}
 
-	public void setColliCaricati(List<Collo> colliCaricati) {
-		this.colliCaricati = colliCaricati;
-	}
 
 	@Override
 	public String toString() {
 		return "Veicolo [capienza=" + capienza + ", codice=" + codice + ", tipo=" + tipo + ", idcorriere=" + idcorriere
-				+ ", caricoAttuale=" + caricoAttuale + ", colliCaricati=" + colliCaricati + "]";
+				+ ", caricoAttuale=" + caricoAttuale ;
 	}
 	
 	

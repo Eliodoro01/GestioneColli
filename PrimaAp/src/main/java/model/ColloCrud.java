@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ColloCrud {
+import util.Observer;
+
+public class ColloCrud implements Observer{
 
 public int inserimentoCollo(Collo c, int id) {
 		
@@ -39,6 +41,7 @@ public int inserimentoCollo(Collo c, int id) {
 		return num;
 	}
 
+@Override
 public int updateStato(int id, String stato) {
 	
 	int result = 0;
@@ -64,7 +67,7 @@ public int updateStato(int id, String stato) {
 	}
 	
 	return result;
-	}
+}
 
 public ResultSet getCollo(String codice) {
 	
@@ -97,4 +100,6 @@ public ResultSet getCollo(String codice) {
 
 	return res;
 }
+
+
 }

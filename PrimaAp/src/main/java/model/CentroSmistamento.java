@@ -1,7 +1,9 @@
 package model;
 
 public class CentroSmistamento {
-	public void riceviCollo(Collo collo, Veicolo veicolo) {
-        veicolo.caricaCollo(collo);
-    }
+	
+	public String notify(Corriere corriere) {
+
+		return "Il collo è stato aggiunto e si trova al seguete indirizzo: " + corriere.getIndirizzo() ;
+	}
 }

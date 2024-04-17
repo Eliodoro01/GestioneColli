@@ -49,7 +49,7 @@
       <a href="home.jsp" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Inserimento Veicolo<span>.</span></h1>
+        <h1>Inserimento Collo<span>.</span></h1>
       </a>
 
       <a class="btn-getstarted scrollto" href="Logout">Logout</a>

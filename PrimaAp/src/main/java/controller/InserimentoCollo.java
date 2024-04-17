@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.CentroSmistamento;
 import model.Collo;
@@ -53,6 +54,7 @@ public class InserimentoCollo extends HttpServlet {
 		VeicoloCrud vcrud = new VeicoloCrud();
 		CentroSmistamento s = new CentroSmistamento();
 		
+		
 		boolean flag = false;
 		
 		c.setMittente(request.getParameter("mittente"));
@@ -60,11 +62,15 @@ public class InserimentoCollo extends HttpServlet {
 		c.setCodice(request.getParameter("codice"));
 		c.setPeso(Integer.parseInt(request.getParameter("peso")));
 		
+		String notifica = null;
 		
 		int id = (int) request.getSession().getAttribute("id"); //questo è l'id del corriere su cui stiamo andando a lavorare e quindi dei suoi veicoli su cui caricare i colli
 		//System.out.println("l'id è " + id);
 		
 		ResultSet rs = vcrud.getListaVeicoli(id);
+		Corriere corriere = new Corriere();
+		CorriereCrud corr = new CorriereCrud();
+		corriere = corr.getCorriereById(id, corriere);
 	
 		try {	//QUI SI VA AD IMPLEMENTARE UN ALGORITMO DI NEXT FIT 
 			while(rs.next()) //in questo rs sono presenti tutti i veicoli, quindi itera finchè non trova il veicolo con la capienza abbastanza grande da contenere il collo da inserire
@@ -72,21 +78,20 @@ public class InserimentoCollo extends HttpServlet {
 //				System.out.println("il peso è " + c.getPeso());
 //				System.out.println("il carico attuale è " + rs.getInt("caricoattuale"));
 //				System.out.println("la capienza è " + rs.getInt("capienza"));
-				
-				s.riceviCollo(c, v);
-				/*if((c.getPeso() + (rs.getInt("caricoattuale"))) <= (rs.getInt("capienza")) ){ 
+								
+				if((c.getPeso() + (rs.getInt("caricoattuale"))) <= (rs.getInt("capienza")) ){ 
 					//se il peso del collo da inserire + il carico attuale del veicolo sono < della capienza massima del veicolo 
 					//allora il collo potrà essere inserito nel veicolo corrente
+					
+					notifica = s.notify(corriere); //pattern che notifica all'osservatore l'arrivo del collo ad un determinato centro di smistamento 
 					
 					flag = true; //impostiamo questo flag TRUE per gestire in seguito il reindirizzamento ad una pagina di "success"
 					
 					crud.inserimentoCollo(c, rs.getInt("id")); //inseriamo il collo nel veicolo con l'id che andiamo a recuperare dal ResultSet
 					
-					s.riceviCollo(c, v); //pattern che notifica all'osservatore l'inserimento del collo nel veicolo
-					
 					vcrud.update((c.getPeso() + (rs.getInt("caricoattuale"))), rs.getInt("id")); //aggiorniamo il carico attuale del veicolo
 					break;
-				}*/
+				}
 				
 			}
 		} catch (SQLException e) {
@@ -94,7 +99,7 @@ public class InserimentoCollo extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(flag) { //se il flag è true significa che si è entrati nell'if precedente e quindi è stato trovato un veicolo con il carico attuale abbastanza grande da contenere un collo
-			request.setAttribute("success", "Inserimento collo avvenuto");
+			request.setAttribute("success", notifica);
 			RequestDispatcher rd = request.getRequestDispatcher("home.jsp"); //passa il testimone alla jsp
 			rd.forward(request, response); //avviene il passaggio
 		}

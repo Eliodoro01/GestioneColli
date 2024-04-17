@@ -6,6 +6,8 @@ import java.util.List;
 import util.Observer;
 
 public class Observable {
+	
+	//essendo che noi andiamo a gestire una persistenza nel DB andiamo a gestire un collo alla volta 
 	private List<Observer> observers = new ArrayList<>();
 
     public void addObserver(Observer observer) {
@@ -16,9 +18,9 @@ public class Observable {
         observers.remove(observer);
     }
 
-    public void notifyObservers(Collo collo) {
+    public void notifyObservers(int id, String stato) {
         for (Observer observer : observers) {
-            observer.update(collo);
+            observer.updateStato(id, stato);
         }
     }
 }
