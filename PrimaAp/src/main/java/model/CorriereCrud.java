@@ -147,6 +147,8 @@ public int modificaCorriere(String pivaOld, Corriere c) { //gli dobbiamo passare
 		stat.setString(6, c.getCap());
 		stat.setString(7, pivaOld); //nella clausola where
 		
+		System.out.println("lo stat è: " + stat);
+		
 		result = stat.executeUpdate(); 
 
 	} catch (SQLException e) {

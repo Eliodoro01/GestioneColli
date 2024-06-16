@@ -72,7 +72,6 @@ public class Veicolo extends Observable{
 	}
 	
 	
-	//TODO inserire i veicoli con un form
 	
 
 }

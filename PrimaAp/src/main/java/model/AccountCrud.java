@@ -114,7 +114,7 @@ public class AccountCrud {
 
 		String query = "UPDATE account SET email=?,username=?,password=? WHERE id = ?";
 		// andiamo a fare una query per prendere tutte le colonne della tabella corriere che ha come campo piva quella passata al metodo
-		
+	
 		PreparedStatement stat; //è un oggetto che contiene uno statement precompilato in SQL per eseguire in modo efficiente una query più volte
 		try {
 			stat = conn.prepareStatement(query); //andiamo a preparare la query

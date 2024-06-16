@@ -89,7 +89,7 @@
                 <a href="form_inserimento_veicolo.jsp" class="stretched-link">
                   <h3>Inserisci Veicolo</h3>
                 </a>
-                <p>INSERISCI DESCRIZIONE</p>
+                <p>Tramite questa pagina è possibile inserire nuovi veicoli a cui associare colli</p>
               </div>
             </div>
           </div><!-- End Service Item -->
@@ -106,7 +106,7 @@
                 <a href="InserimentoVeicolo" class="stretched-link">
                   <h3>Gestione veicoli</h3>
                 </a>
-                <p>INSERISCI DESCRIZIONE</p>
+                <p>Tramite questa pagina è possibile gestire tutti i veicoli già esistenti ed è possibile accedere ad una pagina per gestire i colli in un determinato veicolo</p>
               </div>
             </div>
           </div><!-- End Service Item -->
@@ -123,7 +123,7 @@
                 <a href="form_inserimento_collo.jsp" class="stretched-link">
                   <h3>Inserisci Collo</h3>
                 </a>
-                <p>INSERISCI DESCRIZIONE</p>
+                <p>Tramite questa pagina è possibile inserire nuovi colli nel primo veicolo abbastanza grande per contenerli</p>
               </div>
             </div>
           </div><!-- End Service Item -->
@@ -158,7 +158,7 @@
                 <a href="form_inserimento_corriere.jsp" class="stretched-link">
                   <h3>Inserisci Corriere</h3>
                 </a>
-                <p>INSERISCI DESCRIZIONE</p>
+                <p>Tramite questa pagina è possibile inserire nuovi corrieri (azienda di spedizioni)</p>
               </div>
             </div>
           </div><!-- End Service Item -->
@@ -175,7 +175,7 @@
                 <a href="InserimentoCorriere" class="stretched-link">
                   <h3>Gestione Corrieri</h3>
                 </a>
-                <p>INSERISCI DESCRIZIONE</p>
+                <p>Tramite questa pagina è possibile gestire tutti i corrieri già esistenti</p>
               </div>
             </div>
           </div><!-- End Service Item -->
